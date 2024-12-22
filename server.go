@@ -22,20 +22,22 @@ func caclculateHandler(w http.ResponseWriter, r *http.Request) {
 
 	err := json.NewDecoder(r.Body).Decode(&req)
 	if err != nil {
-		res.Error = err.Error()
+		res.Error = "Invalid request"
+		w.WriteHeader(http.StatusBadRequest)
 		json.NewEncoder(w).Encode(res)
 		return
 	}
 
 	result, err := calc.Calc(req.Expression)
 	if err != nil {
-		res.Error = err.Error()
+		res.Error = "Expression is not valid"
+		w.WriteHeader(http.StatusUnprocessableEntity)
 		json.NewEncoder(w).Encode(res)
 		return
 	}
 
 	res.Result = fmt.Sprintf("%f", result)
-	// w.Header().Set("Content-Type", "application/json")
+	w.Header().Set("Content-Type", "application/json")
 	json.NewEncoder(w).Encode(res)
 }
 
