@@ -55,6 +55,11 @@ git clone https://github.com/nasimlat/calc_service
 Для запуска сервера выполните команду:
 
 ```sh
+cd calc_servce
+```
+
+
+```sh
 go run ./server.go
 ```
 
