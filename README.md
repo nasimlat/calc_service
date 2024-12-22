@@ -77,8 +77,12 @@ curl --location 'http://localhost:8080/api/v1/calculate' \
   "expression": "2+2*2"
 }'
 ```
+```sh
+curl -X POST http://localhost:8080/api/v1/calculate -H "Content-
+Type: application/json" -d "{\"expression\": \"2+2*2\"}"
+```
 
-Ответ:
+Ответ:\
 
 ```json
 {
@@ -94,6 +98,10 @@ curl --location 'http://localhost:8080/api/v1/calculate' \
 --data '{
   "expression": "2+2*a"
 }'
+```
+```sh
+curl -X POST http://localhost:8080/api/v1/calculate -H "Content-
+Type: application/json" -d "{\"expression\": \"2+2*a\"}"
 ```
 
 Ответ:
@@ -112,6 +120,10 @@ curl --location 'http://localhost:8080/api/v1/calculate' \
 --data '{
   "expression": "
 }'
+```
+```sh
+curl -X POST http://localhost:8080/api/v1/calculate -H "Content-
+Type: application/json" -d "{\"expression\": \"}"
 ```
 
 Ответ:
