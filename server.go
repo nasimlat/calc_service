@@ -22,8 +22,8 @@ func caclculateHandler(w http.ResponseWriter, r *http.Request) {
 
 	err := json.NewDecoder(r.Body).Decode(&req)
 	if err != nil {
-		res.Error = "Invalid request"
-		w.WriteHeader(http.StatusBadRequest)
+		res.Error = "Internal server error"
+		w.WriteHeader(http.StatusInternalServerError)
 		json.NewEncoder(w).Encode(res)
 		return
 	}
